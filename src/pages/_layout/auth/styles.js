@@ -36,7 +36,8 @@ export const Content = styled.div`
       font-weight: bold;
       font-size: 14px;
       color: #444444;
-      text-align: left;
+      text-align: center;
+      margin: 0 0 10px;
     }
 
     input {
@@ -50,6 +51,13 @@ export const Content = styled.div`
       padding: 0 15px;
       color: black;
       margin: 0 0 10px;
+    }
+
+    span {
+      color: #ff1435;
+      font-weight: bold;
+      margin: 0 0 10px;
+      align-self: flex-start;
     }
 
     button {
