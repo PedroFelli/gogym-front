@@ -7,13 +7,23 @@ const INITIAL_STATE = {
 };
 
 export default function auth(state = INITIAL_STATE, aciton) {
-  switch (aciton.type) {
-    case '@auth/SIGN_IN_SUCESS':
-      return produce(state, draft => {
+  return produce(state, draft => {
+    switch (aciton.type) {
+      case '@auth/SIGN_IN_REQUEST': {
+        draft.loading = true;
+        break;
+      }
+      case '@auth/SIGN_IN_SUCESS': {
         draft.token = aciton.payload.token;
         draft.signed = true;
-      });
-    default:
-      return state;
-  }
+        draft.loading = false;
+        break;
+      }
+      case '@auth/SIGN_FAILURE': {
+        draft.loading = false;
+        break;
+      }
+      default:
+    }
+  });
 }
